@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅遊花費紀錄</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+    <div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>
+    <div id="app">
+        <!-- Sidebar -->
+        <aside class="sidebar collapsed">
+            <div class="sidebar-header">
+                <h2>✈️ 旅遊花費紀錄</h2>
+            </div>
+            <ul id="trip-list" class="trip-list">
+                <li id="back-home-btn" class="trip-item">🏠 所有旅程總覽</li>
+                <!-- Trips will be injected here -->
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="header-titles">
+                    <h1 id="header-title">所有旅程總覽</h1>
+                    <div id="header-subtitle" class="header-subtitle"></div>
+                </div>
+            </header>
+            
+            <div id="dashboard" class="dashboard hidden">
+                <div class="top-row">
+                    <!-- Summary Cards -->
+                    <div class="summary-cards">
+                        <div class="card glass-card summary-card total-cost-card">
+                            <h3>總花費</h3>
+                            <div class="cost-numbers">
+                                <div class="card-value twd-value" id="total-twd">NT$ 0</div>
+                            </div>
+                            <div id="exchange-rate-display" class="exchange-rate exchange-rate-footer"></div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="charts-section">
+                        <div class="card glass-card chart-container">
+                            <h3>花費分類佔比</h3>
+                            <div class="canvas-wrapper">
+                                <canvas id="categoryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail Section -->
+                <div class="details-section">
+                    <div class="card glass-card">
+                        <h3>花費明細</h3>
+                        <div id="sections-container" class="sections-container">
+                            <!-- Section details injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home View Gallery -->
+            <div id="home-view" class="home-view">
+                <div class="trip-cards-grid" id="trip-cards-grid">
+                    <!-- Trip cards will be injected here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
