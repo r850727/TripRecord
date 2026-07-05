@@ -129,8 +129,8 @@ function renderHomeView() {
             }
 
             let displayCurrency = trip.currencyName || '外幣';
-            if (displayCurrency === '日幣') displayCurrency = '¥';
-            if (displayCurrency === '新加坡幣') displayCurrency = 'SGD$';
+            if (displayCurrency === '日幣') displayCurrency = '日幣(¥)';
+            if (displayCurrency === '新加坡幣') displayCurrency = '新加坡幣(SGD$)';
 
             const card = document.createElement('div');
             card.className = 'trip-card';
@@ -178,8 +178,8 @@ function renderTrip(trip) {
     headerSubtitle.textContent = trip.date_range || '';
     
     let displayCurrency = trip.currencyName || '外幣';
-    if (displayCurrency === '日幣') displayCurrency = '¥';
-    if (displayCurrency === '新加坡幣') displayCurrency = 'SGD$';
+    if (displayCurrency === '日幣') displayCurrency = '日幣(¥)';
+    if (displayCurrency === '新加坡幣') displayCurrency = '新加坡幣(SGD$)';
     
     if (exchangeRateDisplay) {
         if (trip.exchange_rate) {
@@ -236,7 +236,7 @@ function renderTrip(trip) {
             <thead>
                 <tr>
                     <th>項目</th>
-                    <th>台幣</th>
+                    <th>台幣(NT$)</th>
                     <th>${displayCurrency}</th>
                     <th>備註</th>
                     <th>類型</th>
