@@ -208,6 +208,12 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.2;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+#header-title:hover {
+    opacity: 0.8;
 }
 
 .header-subtitle {

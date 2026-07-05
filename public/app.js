@@ -33,6 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backHomeBtn) {
         backHomeBtn.addEventListener('click', renderHomeView);
     }
+
+    const mainHeaderTitle = document.getElementById('header-title');
+    if (mainHeaderTitle) {
+        mainHeaderTitle.addEventListener('click', renderHomeView);
+    }
 });
 
 function initSidebar() {
