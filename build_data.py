@@ -94,6 +94,8 @@ def parse_markdown(filepath):
 
 def main():
     directory = "."
+    public_dir = os.path.join(directory, "public")
+    os.makedirs(public_dir, exist_ok=True)
     
     all_data = []
     
@@ -105,7 +107,7 @@ def main():
     # sort by id descending (assuming ids are like 2026-03, 2025-08)
     all_data.sort(key=lambda x: x['id'], reverse=True)
             
-    output_path = "data.js"
+    output_path = os.path.join(public_dir, "data.js")
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(f"const travelData = {json.dumps(all_data, ensure_ascii=False, indent=2)};\n")
         
