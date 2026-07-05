@@ -93,13 +93,11 @@ def parse_markdown(filepath):
     return trip_data
 
 def main():
-    directory = r"e:\自助旅行花費紀錄"
-    web_dir = os.path.join(directory, "web")
-    os.makedirs(web_dir, exist_ok=True)
+    directory = "."
     
     all_data = []
     
-    for filepath in glob.glob(os.path.join(directory, "*.md")):
+    for filepath in glob.glob("*.md"):
         data = parse_markdown(filepath)
         if data['title'] or data['sections']:
             all_data.append(data)
@@ -107,13 +105,11 @@ def main():
     # sort by id descending (assuming ids are like 2026-03, 2025-08)
     all_data.sort(key=lambda x: x['id'], reverse=True)
             
-    output_path = os.path.join(web_dir, "data.js")
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write("const travelData = ")
-        f.write(json.dumps(all_data, ensure_ascii=False, indent=2))
-        f.write(";\n")
+    output_path = "data.js"
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(f"const travelData = {json.dumps(all_data, ensure_ascii=False, indent=2)};\n")
         
-    print(f"Successfully generated {output_path}")
+    print(f"Successfully generated {os.path.abspath(output_path)}")
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
